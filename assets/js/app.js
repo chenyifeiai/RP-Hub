@@ -8222,7 +8222,7 @@ const app = createApp({
             getToolCallModeText, hasThinkingOrTools, isMessageThinkingOrRunning, isThinkingSummaryOpen, toggleThinkingSummary, markThinkingSummaryDetailOpened, getTimelineSteps,
             isStyleFilterDetailsOpen, toggleStyleFilterDetails, getStyleFilterHitSegments,
             chatRoundStats, conversationBodyLength, summaryCompressedBodyLength, summaryCompressionRate,
-            editingCharacter, editingPreset, editingUiTemplate, toasts, chatContainer, isChatFullscreen, isMobileKeyboardOpen, inputBox, messageElements,
+            editingCharacter, editingPreset, editingUiTemplate, toasts, showToast, chatContainer, isChatFullscreen, isMobileKeyboardOpen, inputBox, messageElements,
             isGeneratorLoading, generatorUrl, onGeneratorLoad, // Generator exports
             isSquareLoading, squareUrl, onSquareLoad, // Square exports
             isNovelLoading, novelUrl, onNovelLoad, // Novel exports
@@ -8562,4 +8562,9 @@ const app = createApp({
 // 公共弹窗部件需要全局注册，供其他弹窗组件内部直接复用。
 app.component('ModalShell', ModalShell);
 app.component('ModalHeader', ModalHeader);
+if (window.RPHubThemeStoreComponents) {
+    app.component('ThemeDockSidebar', window.RPHubThemeStoreComponents.ThemeDockSidebar);
+    app.component('ThemeFloatingAddons', window.RPHubThemeStoreComponents.ThemeFloatingAddons);
+    app.component('ThemeStoreView', window.RPHubThemeStoreComponents.ThemeStoreView);
+}
 app.mount('#app');

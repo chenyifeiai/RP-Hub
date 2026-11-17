@@ -3,7 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <script src="assets/js/theme.js"></script>
+    <script>
+        document.write('<script src="assets/js/theme.js?v=' + Date.now() + '"><\/script>');
+    </script>
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, interactive-widget=resizes-content">
     <meta name="rphub-update-api" content="https://rphub-presence.zeabur.app">
@@ -22,7 +24,8 @@
         (function (stamp) {
             document.write('<script src="assets/js/tailwind-theme.js?v=' + stamp + '"><\/script>'
                 + '<link rel="stylesheet" href="assets/css/theme.css?v=' + stamp + '">'
-                + '<link rel="stylesheet" href="assets/css/styles.css?v=' + stamp + '">');
+                + '<link rel="stylesheet" href="assets/css/styles.css?v=' + stamp + '">'
+                + '<link rel="stylesheet" href="assets/css/theme-store.css?v=' + stamp + '">');
         })(Date.now());
     </script>
 </head>
@@ -99,6 +102,9 @@
             :ui-template-running="uiTemplateUpdateStatus.state === 'running'" :user="user"
             @update:current-view="currentView = $event"
             @close="closeNavigation"></app-navigation>
+
+        <theme-dock-sidebar v-if="!isChatFullscreen" :current-view="currentView"
+            @update:current-view="currentView = $event"></theme-dock-sidebar>
 
         <div class="app-main flex-1 flex flex-col h-full overflow-hidden bg-gray-50 relative" :inert="isNavigationOpen">
 
@@ -1060,6 +1066,11 @@
                     loading-text="加载小说生成中..." @menu="toggleNavigation" @load="onNovelLoad">
                 </embedded-view-content>
             </div>
+
+            <!-- Theme Store View -->
+            <theme-store-view v-if="currentView === 'themestore'"
+                @menu="toggleNavigation"
+                @toast="showToast($event.msg, $event.type)"></theme-store-view>
 
             <!-- Settings View -->
             <div v-if="currentView === 'settings'" class="management-view settings-view">
@@ -2512,12 +2523,13 @@
             </div>
         </modal-shell>
 
+        <theme-floating-addons v-if="!isChatFullscreen"></theme-floating-addons>
     </div>
 
     <script>
         (function (stamp) {
             ['built-in-content', 'core-utils', 'api-utils', 'data-services', 'runtime-services', 'cloud-backup',
-                'update-check', 'ui-components', 'app'].forEach(name => {
+                'update-check', 'ui-components', 'theme-store', 'theme-store-ui', 'app'].forEach(name => {
                 document.write('<script src="assets/js/' + name + '.js?v=' + stamp + '"><\/script>');
             });
         })(Date.now());

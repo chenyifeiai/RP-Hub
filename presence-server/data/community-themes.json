@@ -1,0 +1,35 @@
+[
+  {
+    "schemaVersion": "1.0",
+    "id": "yunkui-ink-gold",
+    "name": "云岿山 · 墨形影踪画报",
+    "author": "新艾利都人特刊",
+    "version": "1.0.0",
+    "category": "新中式潮酷",
+    "baseMode": "dark",
+    "cover": "linear-gradient(135deg, #0d0d10 0%, #26231d 52%, #d4af63 85%, #f5f2e9 100%)",
+    "accent": "#d4af63",
+    "description": "新中式潮流杂志刊物主题：玄墨飞白底纹搭配流沙金切角边框、随主题附带「随便观 · 墨金刊号悬浮铭牌」，适合国潮与都市奇幻角色卡。",
+    "tags": [
+      "新中式潮酷",
+      "墨金杂志风",
+      "带刊号悬浮铭牌"
+    ],
+    "capabilities": {
+      "dockSidebar": false
+    },
+    "css": "html[data-rphub-theme-pack=\"yunkui-ink-gold\"] {\n    --primary-400: 224 188 114;\n    --primary-500: 212 175 99;\n    --primary-600: 184 146 72;\n    --primary-text-500: 228 196 128;\n    --primary-text-600: 236 208 148;\n}\nhtml[data-rphub-theme-pack=\"yunkui-ink-gold\"] body,\nhtml[data-rphub-theme-pack=\"yunkui-ink-gold\"] #app,\nhtml[data-rphub-theme-pack=\"yunkui-ink-gold\"] .app-main {\n    background:\n        radial-gradient(ellipse at 80% 18%, rgba(212,175,99,.16), transparent 42%),\n        radial-gradient(ellipse at 15% 85%, rgba(255,255,255,.05), transparent 40%),\n        #111113 !important;\n    color: #f3f0e8 !important;\n}\nhtml[data-rphub-theme-pack=\"yunkui-ink-gold\"] .app-main .msg-bubble-glass {\n    background: rgba(22, 21, 24, 0.94) !important;\n    color: #f4f1e8 !important;\n    border: 1px solid rgba(212, 175, 99, 0.36) !important;\n    border-left: 4px solid #d4af63 !important;\n    border-radius: 2px 14px 2px 14px !important;\n}\nhtml[data-rphub-theme-pack=\"yunkui-ink-gold\"] .app-main .msg-name-tag {\n    background: #d4af63 !important;\n    color: #12110e !important;\n    font-weight: 900 !important;\n    border-radius: 2px !important;\n}\nhtml[data-rphub-theme-pack=\"yunkui-ink-gold\"] .input-area-mobile .input-island {\n    position: relative !important;\n    padding-top: 24px !important;\n    background: rgba(18, 18, 20, 0.96) !important;\n    border: 1.5px solid rgba(212, 175, 99, 0.5) !important;\n    border-radius: 2px 14px 2px 14px !important;\n}\nhtml[data-rphub-theme-pack=\"yunkui-ink-gold\"] .input-area-mobile .input-island::before {\n    content: \"TRACES OF INK // 云岿山 · 随便观\";\n    position: absolute;\n    left: 12px;\n    top: 6px;\n    color: #d4af63;\n    font: 800 9px/1 ui-monospace, \"Microsoft YaHei\", sans-serif;\n    letter-spacing: .12em;\n}",
+    "addons": [
+      {
+        "id": "yunkui-issue-badge",
+        "type": "html-widget",
+        "slot": "floating-br",
+        "title": "墨形影踪刊号铭牌",
+        "html": "<div style=\"padding:9px 13px;background:rgba(17,17,19,.92);border:1px solid rgba(212,175,99,.55);border-left:3px solid #d4af63;color:#f4f1e8;border-radius:2px 10px 2px 10px;box-shadow:0 10px 24px rgba(0,0,0,.45);\"><div style=\"font-size:9px;letter-spacing:.14em;color:#d4af63;font-weight:800;\">ISSUE 05 // Z.Z.Z.</div><div style=\"font-size:13px;font-weight:900;margin-top:2px;\">云岿山 · 随便观</div><div style=\"font-size:10px;opacity:.7;margin-top:1px;\">阴阳相生 · 术道归一</div></div>"
+      }
+    ],
+    "likes": 18,
+    "installs": 42,
+    "createdAt": "2026-11-17T07:00:00.000Z"
+  }
+]

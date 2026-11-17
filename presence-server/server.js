@@ -1,5 +1,6 @@
 import http from 'node:http';
 import { flushBackupStats, handleAdminRequest, handleBackupRequest, initBackup } from './backup.js';
+import { handleThemeRequest } from './themes.js';
 
 const port = Number(process.env.PORT) || 3000;
 const parseVersionId = value => /^\d{5}$/.test(String(value ?? '').trim())
@@ -116,6 +117,10 @@ const server = http.createServer(async (request, response) => {
     if (url.pathname.startsWith('/v1/backup')) {
         return handleBackupRequest(request, response, url, (status, body) => sendJson(response, status, body, corsOrigin),
             corsOrigin ? { 'Access-Control-Allow-Origin': corsOrigin, Vary: 'Origin' } : {});
+    }
+
+    if (url.pathname === '/v1/themes' || url.pathname.startsWith('/v1/themes/')) {
+        return handleThemeRequest(request, url, (status, body) => sendJson(response, status, body, corsOrigin));
     }
 
     return sendJson(response, 404, { error: 'Not found' }, corsOrigin);
